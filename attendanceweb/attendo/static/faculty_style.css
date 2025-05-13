@@ -456,32 +456,67 @@ body{
     cursor:default;
     box-shadow: none;
 }
-.t_row{
-    display:flex;
-    gap:10px;
-}
-.t_row .day{
-    width:10%;
-    border:2px solid;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: Sansation;
-    font-size:15px;
+.tt {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
-.t_row .periods{
-    width:10.5%;
-    border:2px solid;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: Sansation;
-    font-size:15px;
+.t_row {
+    display: grid;
+    grid-template-columns: 120px repeat(8, 1fr) auto auto;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow-x: auto;
 }
 
-.tt{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
+.day {
+    font-family: Sansation;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+    padding: 10px;
+}
+
+.periods {
+    font-family: Sansation;
+    padding: 10px;
+    background-color: #e3f2fd;
+    border: 1px solid #90caf9;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #0d47a1;
+    margin: 4px;
+}
+
+.tt button {
+    font-family: Sansation;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: background-color 0.3s;
+}
+
+.tt button:hover {
+    background-color: #388e3c;
+}
+
+form {
+    display: inline;
+    margin-left: 5px;
 }
 
 .attendancediv{
@@ -587,7 +622,7 @@ body{
 .chooseperiodback{
     padding:30px;
     
-}
+} 
 
 .chooseperiodback button{
     font-family: Sansation;
