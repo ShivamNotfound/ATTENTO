@@ -12,14 +12,14 @@
     <script></script>
 </head>
 <body>
-    <div></div>
+    
     <div>
         <nav class="navbar">
             <center>
                 <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
             <ul>
                 <li><a href="#">Settings</a></li>
-                 <li><a href="/attendo/faculty/logout">Logout</a></li>
+                <li><a href="/attendo/faculty/logout">Logout</a></li>
             </ul>
             </center>
         </nav>
@@ -31,23 +31,34 @@
     <center><div style="font-family: Sansation; font-size:40px">Periods</div></center>
 
     <div class="chooseperiod">
-    {% for period in periods %}
-    {% load percentage_calculator %}
-    {% check_period_dup period.period period.subject_id as result %}
-    {% if result %}
-        <button onclick="location.href='/attendo/faculty/markattendance/{{class_id}}/{{period.subject_id}}/{{period.period}}'">
-            {{period.name}}
-            {{period.subject.f_name}}
-        </button>
-    {% else %}
-        <button disabled onclick="location.href='/attendo/faculty/markattendance/{{class_id}}/{{period.subject_id}}/{{period.period}}'">
-            {{period.name}}
-            {{period.subject.f_name}}
-        </button>
-    {% endif %}
-    {% empty %}
-    <button>EMPTY</button>
-    {% endfor %}
+        {% for period in periods %}
+        
+        {% load percentage_calculator %}
+        {% check_period_dup period.period period.subject_id as result %}
+        
+            
+            {% if result %}
+            <div class="ordernperiod">
+            <div class="period_order" >{{period.period|add:'1'}}</div>
+                <button onclick="location.href='/attendo/faculty/markattendance/{{class_id}}/{{period.subject_id}}/{{period.period}}'">
+                    {{period.name}}
+                    {{period.subject.f_name}}
+                </button>
+            </div>
+            {% else %}
+            <div class="ordernperiod">
+            <div class="period_order">{{period.period|add:'1'}}</div>
+                <button disabled onclick="location.href='/attendo/faculty/markattendance/{{class_id}}/{{period.subject_id}}/{{period.period}}'">
+                    {{period.name}}
+                    {{period.subject.f_name}}
+                </button>
+            </div>
+        
+        {% endif %}
+        {% empty %}
+        <button >EMPTY</button>
+        
+        {% endfor %}
     </div>
 
 </body>

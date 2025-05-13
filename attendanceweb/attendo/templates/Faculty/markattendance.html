@@ -28,7 +28,7 @@
     <center><div style="display:block;font-family: Sansation;font-size:50px;margin-left:15%;">{{subject.name}}</div></center>
     
     <form method="POST">
-        {% csrf_token %}
+        {% csrf_token %} 
     <div class="as_container">
         {% for student in students %}
         {% load percentage_calculator %}

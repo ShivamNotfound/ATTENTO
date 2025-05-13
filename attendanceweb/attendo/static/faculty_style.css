@@ -131,11 +131,12 @@ body{
     margin: 5px;
     font-family: Sansation;
     font-size:35px;
-    border:2px solid rgb(7, 181, 36);;
+    border:2px solid #4caf50;;
     width:300px;
     cursor:pointer;
-    background-color:rgb(7, 181, 36);
+    background-color:#4caf50;
     color: #F7EEDD;
+    border-radius: 8px;
     transition:box-shadow 0.2s;
     
 }
@@ -224,12 +225,13 @@ body{
     margin: 5px;
     font-family: Sansation;
     padding: 5px;
-    border:2px solid rgb(7, 181, 36);
+    border:2px solid #4caf50;
     width:300px;
     cursor:pointer;
-    background-color:rgb(7, 181, 36);
+    background-color:#4caf50;
     color: #F7EEDD;
     transition:box-shadow 0.2s;
+    border-radius: 8px;
     }
 .addedclasses #disclass:hover{
     box-shadow: 0 0 5px black;
@@ -239,7 +241,7 @@ body{
 }
 .addedclasses #delete{
     background-color:rgb(254, 56, 56);
-    
+    border-radius: 8px;
     display: inline;
     width:80px;
     font-size: 25px;
@@ -285,9 +287,10 @@ body{
     font-size: 25px;
     font-family: Sansation;
     cursor:pointer;
-    background-color:rgb(7, 181, 36);
-    border:2px solid rgb(7, 181, 36);
+    background-color:#4caf50;
+    border:2px solid #4caf50;
     color: #F7EEDD;
+    border-radius: 10px;
     transition:box-shadow 0.2s;
 }
 .stucontainer #studis:hover{
@@ -307,15 +310,14 @@ body{
     font-family: Sansation;
     font-size: 25px;
     cursor:pointer;
-    background-color:rgb(7, 181, 36);
-    border:2px solid rgb(7, 181, 36);
+    background-color:#4caf50;
+    border:2px solid #4caf50;
+    border-radius: 10px;
     color: #F7EEDD;
     transition:box-shadow 0.2s;
 }
 
-.addstudiv{
-    background-color:rgb(7, 181, 36);
-}
+
 
 .addstudiv span{
     font-size: 30px;
@@ -341,6 +343,7 @@ body{
     transition:box-shadow 0.2s;
     justify-self: stretch;
     align-self: stretch;
+    border-radius: 10px;
 }
 .stucontainer #studelete:hover{
     box-shadow:0 0 10px black;
@@ -534,11 +537,14 @@ form {
     font-family: Sansation;
     padding:3px;
     cursor:pointer;
+    border-radius: 10px;
 
     min-width:200px;
     border:none;
     background-color: #afa9a9;
     transition:0.2s;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .attendancediv button:hover{
     box-shadow:0 0 10px black;
@@ -547,6 +553,7 @@ form {
 .as_container{
     display:flex;
     flex-direction: column;
+    margin-left: 30px;
 }
 
 .attendancestudents{
@@ -560,6 +567,8 @@ form {
     font-family: Sansation;
     font-size:30px;
     align-self: center;
+    margin-right: 20px;
+
 }
 
 .attendancestudents #form{
@@ -577,20 +586,21 @@ form {
 }
 
 .attendancestudents #form label{
-    padding:20px;
     cursor:pointer;
+    padding:12px;
     font-family:Sansation;
     font-size:15px;
     background-color:#e5e2e2;
+    border-radius: 8px;
     transition:box-shadow 0.2s; 
 }
 .attendancestudents #form label:hover{
-    box-shadow: -3px 3px 10px black;
+    box-shadow: 0px 0px 8px black;
 }
 
 
 .attendancestudents #form input:checked+label{
-    background-color: hsl(38, 61%, 80%)
+    background-color: hsl(30, 2%, 68%)
 }
 
 .assignedclass{
@@ -631,6 +641,7 @@ form {
     border:none;
     background-color: #e2dfdf;
     cursor:pointer;
+    border-radius: 8px;
     transition:box-shadow 0.2s;
 }
 .chooseperiodback button:hover{
@@ -645,7 +656,20 @@ form {
     flex-direction: column;
     gap:20px;
 }
+.period_order{
+    font-weight: bold;
+    font-family: Sansation;
+    font-size: 35px;
+    align-self: center;
+    width:20px;
+}
+.ordernperiod{
+    display: flex; 
+    gap:20px;
+    
+}
 .chooseperiod button{
+    border-radius: 8px;
     width:60%;
     height:80px;
     font-family: Sansation;
@@ -672,9 +696,12 @@ form {
     font-size: 25px;
     border:none;
     padding:15px;
-    background-color: #17a0ea;
-    border-radius: 20px;
+    background-color: #0086ce;
+    border-radius: 8px;
+    cursor:pointer;
+    transition: box-shadow 0.2s;
 }
 
-
-
+.markattendbtn button:hover{
+    box-shadow: 0 0 8px black;
+}

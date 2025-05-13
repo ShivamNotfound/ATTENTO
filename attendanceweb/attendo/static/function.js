@@ -1,5 +1,8 @@
 var degree,branch,section;
 var current_class;
+
+var period=document.getElementsByClassName('period_order')
+
 function create_class(){
     const degree  = document.getElementById("degree").value;
   const branch  = document.getElementById("branch").value;
