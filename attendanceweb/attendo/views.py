@@ -79,7 +79,7 @@ def periodformarking(request,class_id):
             period=Period.objects.get(id=period_id)
             AttendanceBuffer.objects.create(status=status,date=datetime.date.today(),period=period.period,message=message,student_id=student.id,subject_id=period.subject_id)
         return redirect('/attendo/student/home')
-    periods=Period.objects.filter(classes_id=class_id,day="monday")
+    periods=Period.objects.filter(classes_id=class_id,day=datetime.date.today().strftime("%A").lower())
 
     return render(request,'student/markattenpersel.html',{'periods':periods})
 

@@ -9,7 +9,7 @@
     <meta name="keywords" content="Attendance, college ,school">
 </head>
 
-<body>
+<body style="background-color: #bae7da;">
     <div>
     <nav class="navbar">
         <center>
@@ -34,7 +34,7 @@
     </div>
     <div class="stu_home_classes">
     {% for student in students %}
-        <button onclick="location.href='/attendo/student/mark/periods/{{student.classes_id}}'">{{student.classes.degree}}({{student.classes.branch}})-{{student.classes.section}}</button>
+        <button class="markclasses" onclick="location.href='/attendo/student/mark/periods/{{student.classes_id}}'">{{student.classes.degree}}({{student.classes.branch}})-{{student.classes.section}}</button>
     {% endfor %}
     </div>
 </body>

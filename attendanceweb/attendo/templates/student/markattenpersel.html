@@ -28,26 +28,35 @@
 
     <form method="POST">
     {% csrf_token %}
-    <div>
-        <div>
-            <div>
-            <label for="absent">Absent</label>
-            <input type="radio" id="absent" name="status" value="absent">
-            <label for="od">OD</label>
-            <input type="radio" id="od" name="status" value="od">
-            </div>
-            <label for="reason">Reason</label>
-            <textarea id="reason" name="reason"></textarea>
+    <center>
+    <div class="selfattendform">
 
-        <p>Choose Periods</p>
-        </div>
-        <div>
+            <div class="selfattendradio">
+                <input type="radio" id="absent" name="status" value="absent">
+                <label for="absent">Absent</label>
+                <input type="radio" id="od" name="status" value="od">
+                <label for="od">OD</label>
+                
+            </div>
+            <div class="reason">
+                <label id="reason" for="reason">Reason</label>
+                <textarea id="reasonarea" name="reason"></textarea>
+            </div>
+        <p class="chooseperiodlabel">Choose Periods</p>
+
+        <div class="selfattendperiodsblock">
         {% for period in periods %}
-            <label for="{{period.id}}">{{period.subject.name}}</label>
+        <div class="selfattendperiod">
             <input type="checkbox" name="periods" value={{period.id}} id="{{period.id}}">
+            <label for="{{period.id}}">{{period.period|add:'1'}} . {{period.subject.name}}</label>
+            
+        </div>
+        {% empty %}
+        <div id="empty">There are no periods here</div>
         {% endfor %}
         </div>
         <button type="submit">submit</button>
     </div>
+    </center>
     </form>
 </body>

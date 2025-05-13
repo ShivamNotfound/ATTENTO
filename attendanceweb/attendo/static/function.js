@@ -1,7 +1,32 @@
 var degree,branch,section;
 var current_class;
 
-var period=document.getElementsByClassName('period_order')
+window.onload=function(){
+  var pop=document.getElementById('popup');
+  var button=document.getElementById('absentdrop');
+  var pop_o=document.getElementById('popup_o');
+  var button_o=document.getElementById('oddrop');
+
+  button.addEventListener("click",(event)=>{
+    pop.style.display=pop.style.display==='block'?'none':'block';
+    event.stopPropagation();
+  });
+  document.body.addEventListener('click',()=>{
+    pop.style.display='none';
+    pop_o.style.display='none';
+  })
+  pop.addEventListener('click',(event)=>{
+    event.stopPropagation();
+  })
+
+  button_o.addEventListener("click",(event)=>{
+    pop_o.style.display=pop_o.style.display==='block'?'none':'block';
+    event.stopPropagation();
+  });
+  pop_o.addEventListener('click',(event)=>{
+    event.stopPropagation();
+  })
+}
 
 function create_class(){
     const degree  = document.getElementById("degree").value;

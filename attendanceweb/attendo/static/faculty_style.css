@@ -198,10 +198,14 @@ body{
     display: inline-block;
     margin:10px 0;
     padding: 12px 20px;
-    border: 1px solid ;
+    border:none ;
     border-radius: 7px;
     width:40%;
-    box-shadow:4px 4px 5px;
+    box-shadow:0px 0px 5px;
+}
+.addingclassdet input:focus{
+    outline: none;
+    border:1px solid black;
 }
 
 
@@ -603,6 +607,21 @@ form {
     background-color: hsl(30, 2%, 68%)
 }
 
+.attendancestudents #oddrop,#absentdrop{
+    height:30px;
+    align-self: center;
+    border:none;
+    border-radius: 8px;
+}
+.optionwithreason{
+    display: flex;
+    gap:2px;
+}
+.optionwithreason button{
+    cursor: pointer;
+}
+
+
 .assignedclass{
     margin-top: 50px;
     margin-left:60px;
@@ -704,4 +723,13 @@ form {
 
 .markattendbtn button:hover{
     box-shadow: 0 0 8px black;
+}
+
+.attendancestudents #popup,#popup_o{
+    position:absolute;
+    border:1.5px solid;
+    background-color: white;
+    height: 15%;
+    width:15%;
+    padding:10px;
 }
