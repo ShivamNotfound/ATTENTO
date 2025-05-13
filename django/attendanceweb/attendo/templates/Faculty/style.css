@@ -1,0 +1,168 @@
+
+
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-color: #B5A8D5;
+}
+.navbar{
+    height:102px;
+    width:100%;
+    background-color:rgb(34, 102, 34);
+    border-bottom: 2px solid rgb(18, 152, 8);
+}
+
+.logo{
+    width:140px;
+    height:100px;
+    float:left;
+}
+
+.navbar ul{
+    float:right;
+    margin-right: 30px;
+    margin-top: 10px;
+
+}
+
+.navbar ul li{
+    list-style: none;
+    margin:0 17px;
+    display:inline-block;
+    line-height:80px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color:#E1EEBC;
+    font-size: 30px;
+    font-family: Gabriola;   
+    padding:10px;
+    transition: background-color 0.3s;;
+}
+
+.navbar ul li a:hover{
+    background-color:#E1EEBC;
+    color:rgb(34, 102, 34)
+}
+
+.navigations{
+    display:flex;
+    height:40px;
+}
+.yourbtn button , .history button, .assignedbtn button{
+    
+    height:40px;
+    width: 180px;
+    border:none;
+    font-family:Crimson ;
+    font-size: 18px;
+    font-weight: 500;
+    cursor:pointer;
+    background-color: rgb(18, 152, 8);
+    color: #E1EEBC;
+    border:2px solid rgb(18, 152, 8);
+    transition: background-color 0.3s;
+    border-top:none;
+}
+
+#active button{
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    color: rgb(18, 152, 8) ;
+    background-color:#E1EEBC;
+}
+.navigations{
+    border-bottom:2px solid rgb(18, 152, 8) ;
+}
+.navigations button:hover{
+    background-color: #E1EEBC;
+    border-bottom:none;
+    color:rgb(18, 152, 8)
+}
+
+.addclassdiv{
+    margin-left: 30px;
+    margin-top:30px
+}
+.addclassdiv{
+    width:400px;
+    background-color:#B5A8D5;
+}
+.addclassdiv button{
+    padding: 5px;
+    font-family: Crimson;
+    font-size:35px;
+    border:none;
+    width:300px;
+    cursor:pointer;
+    background-color:#B5A8D5;
+    color: white;
+    transition:font-size 0.1s;
+    
+}
+.addclassdiv span{
+    font-weight: 600;
+    border:2px solid white;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.addclassdiv button:hover{
+    font-size: 40px;
+}
+.addclassdiv button:active{
+    font-size:35px;
+}
+
+
+
+.addingclassbtn{
+    display:flex;
+    justify-content:space-between ;
+    height: 100px;
+}
+.addingclassbtn #back{
+    margin-left: 25%;
+}
+.addingclassbtn #next{
+    margin-right: 25%;
+}
+.addingclassbtn button{
+    border:none;
+    font-size: 30px;
+    font-family: Crimson;
+    background-color: #B5A8D5;
+    cursor: pointer;
+    transition:font-size 0.2s;
+}
+.addingclassbtn button:hover{
+    font-size: 35px;
+}
+.addingclassbtn button:active{
+    font-size:30px;
+}
+
+.addingclassdet{
+    margin-top:70px;
+    display:inline-block;
+
+    width:100%;
+}
+
+.addingclassdet input{
+    
+    font-family: Crimson;
+    font-size: 30px;
+    box-sizing: border-box;
+    display: inline-block;
+    margin:10px 0;
+    padding: 12px 20px;
+    border: 1px solid ;
+    border-radius: 7px;
+    width:40%;
+    box-shadow:4px 4px 10px;
+}

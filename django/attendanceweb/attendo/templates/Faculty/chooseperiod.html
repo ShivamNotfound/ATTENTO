@@ -1,0 +1,53 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css' %}">
+    <script src="{% static 'function.js' %}"></script>
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+    <script></script>
+</head>
+<body>
+    <div></div>
+    <div>
+        <nav class="navbar">
+            <center>
+                <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+            <ul>
+                <li><a href="#">Settings</a></li>
+                 <li><a href="/attendo/faculty/logout">Logout</a></li>
+            </ul>
+            </center>
+        </nav>
+    </div>
+    <div class="chooseperiodback">
+        <button onclick="location.href='/attendo/faculty/studentlist/{{class_id}}'">back</button>
+
+    </div>
+    <center><div style="font-family: Sansation; font-size:40px">Periods</div></center>
+
+    <div class="chooseperiod">
+    {% for period in periods %}
+    {% load percentage_calculator %}
+    {% check_period_dup period.period period.subject_id as result %}
+    {% if result %}
+        <button onclick="location.href='/attendo/faculty/markattendance/{{class_id}}/{{period.subject_id}}/{{period.period}}'">
+            {{period.name}}
+            {{period.subject.f_name}}
+        </button>
+    {% else %}
+        <button disabled onclick="location.href='/attendo/faculty/markattendance/{{class_id}}/{{period.subject_id}}/{{period.period}}'">
+            {{period.name}}
+            {{period.subject.f_name}}
+        </button>
+    {% endif %}
+    {% empty %}
+    <button>EMPTY</button>
+    {% endfor %}
+    </div>
+
+</body>

@@ -1,0 +1,117 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css' %}">
+    <script src="{% static 'function.js' %}"></script>
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+    <script></script>
+</head>
+<body>
+    <div></div>
+    <div>
+        <nav class="navbar">
+            <center>
+                <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+            <ul>
+                <li><a href="#">Settings</a></li>
+                 <li><a href="/attendo/faculty/logout">Logout</a></li>
+            </ul>
+            </center>
+        </nav>
+    <center>
+    <div class="faculty_navigations">
+        <button onclick="location.href='/attendo/faculty/studentlist/{{classes}}/'">Students</button>
+        <button onclick="location.href='/attendo/faculty/subjects/{{classes}}/'">Subjects</button>
+        <button id="active" disabled>Time table</button>
+    </div>
+
+    </center>
+    </div>
+
+    <div class="tt">
+        <div class="t_row">
+            <div class="day">Monday</div>
+            {% for period in monday %}
+            <div class="periods">{{period.name}}</div>
+            {% endfor %}
+            {% if mon_len < 8 %}
+            <button onclick="location.href='/attendo/faculty/timetable/{{classes}}/addperiod/monday/{{mon_len}}'">AddPeriod</button>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" name="day" value="monday">clear</button>
+            </form>
+        </div>
+        <div class="t_row">
+            <div class="day">Tuesday</div>
+            {% for period in tuesday %}
+            <div class="periods">{{period.name}}</div>
+            {% endfor %}
+            {% if tues_len < 8 %}
+            <button onclick="location.href='addperiod/tuesday/{{tues_len}}'">AddPeriod</button>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" name="day" value="tuesday">clear</button>
+            </form>
+        </div>
+        <div class="t_row">
+            <div class="day">Wednesday</div>
+            {% for period in wednesday %}
+            <div class="periods">{{period.name}}</div>
+            {% endfor %}
+            {% if wed_len < 8 %}
+            <button onclick="location.href='addperiod/wednesday/{{wed_len}}'">AddPeriod</button>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" name="day" value="wednesday">clear</button>
+            </form>
+        </div>
+        <div class="t_row">
+            <div class="day">Thursday</div>
+            {% for period in thursday %}
+            <div class="periods">{{period.name}}</div>
+            {% endfor %}
+            {% if thurs_len < 8 %}
+            <button onclick="location.href='addperiod/thursday/{{thurs_len}}'">AddPeriod</button>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" name="day" value="thursday">clear</button>
+            </form>
+        </div>
+        <div class="t_row">
+            <div class="day">Friday</div>
+            {% for period in friday %}
+            <div class="periods">{{period.name}}</div>
+            {% endfor %}
+            {% if fri_len < 8 %}
+            <button onclick="location.href='addperiod/friday/{{fri_len}}'">AddPeriod</button>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" name="day" value="friday">clear</button>
+            </form>
+        </div>
+        <div class="t_row">
+            <div class="day">Saturday</div>
+            {% for period in saturday %}
+            <div class="periods">{{period.name}}</div>
+            {% endfor %}
+            {% if sat_len < 8 %}
+            <button onclick="location.href='addperiod/saturday/{sat_len}'">AddPeriod</button>
+            {% endif %}
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" name="day" value="saturday">clear</button>
+            </form>
+        </div>
+    </div>
+
+</body>

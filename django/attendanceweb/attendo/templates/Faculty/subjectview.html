@@ -1,0 +1,43 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css' %}">
+    <script src="{% static 'function.js' %}"></script>
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+    <script></script>
+</head>
+<body>
+    
+    <div>
+        <nav class="navbar">
+            <center>
+                <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+            <ul>
+                <li><a href="#">Settings</a></li>
+                 <li><a href="/attendo/faculty/logout">Logout</a></li>
+            </ul>
+            </center>
+        </nav>
+    </div>
+
+    <div class="faculty_navigations">
+        <button onclick="location.href='/attendo/faculty/studentlist/{{classes}}/'">Students</button>
+        <button id="active" disabled>Subjects</button>
+        <button onclick="location.href='/attendo/faculty/timetable/{{classes}}/'">Time table</button>
+    </div>
+
+    <div class="stucontainer">
+        
+        {% for subject in subjects %}
+        <button id ="studis" onclick="location.href=''">{{subject.name}}-{{subject.f_name}}</button>
+        {% endfor %}
+        <div class="addstudiv">
+            <button onclick="location.href='addsub'"><span>+</span>ADD SUBJECTS</button>
+        </div>
+    </div>
+</body>

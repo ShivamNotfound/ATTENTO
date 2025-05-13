@@ -1,0 +1,49 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css'%}">
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+    <script src="{% static 'function.js' %}"></script>
+</head>
+<body>
+    <div>
+        <nav class="navbar">
+            <center>
+                <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+            <ul>
+                <li><a href="#" style='font-family:Sansation'>Settings</a></li>
+                <li><a href="/attendo/faculty/logout">Logout</a></li>
+            </ul>
+            </center>
+        </nav>
+    </div>
+
+    <div class="navigations">
+        <div id="active" class="yourbtn"><button >YOUR CLASSES</button></div>
+        <div class="assignedbtn"><button onclick="location.href='/attendo/faculty/assignedclass'">ASSIGNED CLASSES</button></div>
+        <div class="history"><button onclick="location.href='/attendo/faculty/history'">HISTORY</button></div>
+    </div>
+    <br>
+    <div style="font-family: Sansation;font-size: 30px;margin:10px">Welcome back {{faculty.username}}</div>
+    <div class="classesdiv">
+    {% for class in classes %}
+    <div class="addedclasses" style="display: flexbox;flex-direction: row;">
+        <button id=disclass onclick="location.href='/attendo/faculty/studentlist/{{class.id}}/'">{{class.degree}}({{class.branch}})-{{class.section}}</button>
+        <button id="delete" onclick="delete_class({{class.id}})"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
+    </div>
+    {% empty %}
+    </div>
+    <br><br>
+    <p>There are no classes</p>
+    {% endfor %}
+    <div class="addclassdiv">
+        <button onclick="location.href='/attendo/faculty/addclass'"><span>+</span> ADD CLASS</button>
+
+    </div>
+
+</body>

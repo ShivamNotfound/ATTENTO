@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css' %}">
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+    <script src="{% static 'function.js' %}"></script>
+</head>
+<body style=" 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-image: url('/static/images/backgroundimg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: sans-serif;
+">
+    <div class="authbg">
+    <div class="authcontainer">
+    <form method="POST">
+    
+        
+    
+    {% csrf_token %}
+    <div class="register">
+    <label style="font-size: 40px;">LOGIN</label>
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit">Login</button>
+    </div>
+    </form>
+    <div class="orlogin">
+        <div>Or</div>
+    <button onclick="location.href='/attendo/faculty/register'" type="button">Sign up</button>
+    </div>
+    </div>
+    </div>
+</body>

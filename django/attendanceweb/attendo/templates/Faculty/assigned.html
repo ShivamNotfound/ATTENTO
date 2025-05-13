@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css' %}">
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+</head>
+<body>
+    <div>
+        <nav class="navbar">
+            <center>
+                <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+            <ul>
+                <li><a href="#">Settings</a></li>
+                 <li><a href="/attendo/faculty/logout">Logout</a></li>
+            </ul>
+            </center>
+        </nav>
+    </div>
+
+    <div class="navigations">
+        <div class="yourbtn"><button onclick="location.href='/attendo/faculty/home'">YOUR CLASSES</button></div>
+        <div id="active" class="assignedbtn"><button onclick="location.href='/attendo/faculty/assignedclass'">ASSIGNED CLASSES</button></div>
+        <div class="history"><button onclick="location.href='/attendo/faculty/history'">HISTORY</button></div>
+    </div>
+
+    <div class="assignedclass">
+        {% for subject in subjects%}
+        <button onclick="location.href='/attendo/faculty/assigned_classes/{{subject.class_assigned_id}}'">{{subject.class_assigned.degree}}({{subject.class_assigned.branch}})-{{subject.class_assigned.section}}<br>{{subject.class_assigned.faculty.username}}</button>
+        {% endfor %} 
+    </div>
+
+
+</body>

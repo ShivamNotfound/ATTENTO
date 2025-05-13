@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css' %}">
+    <script src="{% static 'function.js' %}"></script>
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+    <script></script>
+</head>
+<body>
+    <div></div>
+    <div>
+        <nav class="navbar">
+            <center>
+                <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+            <ul>
+                <li><a href="#">Settings</a></li>
+                 <li><a href="/attendo/faculty/logout">Logout</a></li>
+            </ul>
+            </center>
+        </nav>
+    </div>
+
+    <center><div>{{subject.name}}</div></center>
+    
+    <form method="POST">
+        {% csrf_token %}
+    <div class="as_container">
+         {% for student in students %}
+        {% load percentage_calculator %}
+        {% check_marked student.id subject.id period_num as buffer %}
+        {% if buffer %}
+            {% if buffer.status == "absent" %}
+            <div class="attendancestudents">
+                <div id="name">{{student.name}}</div>
+                    <div id="form">
+                    <input type="radio" id="present{{student.id}}" name="status{{student.id}}" value="present">
+                    <label for="present{{student.id}}">Present</label><br>
+                    <input type="radio" id="absent{{student.id}}" name="status{{student.id}}" value="absent" checked>
+                    <label for="absent{{student.id}}">Absent</label><br>
+                    <p>{{buffer.message}}</p>
+                    <input type="radio" id="od{{student.id}}" name="status{{student.id}}" value="OD">
+                    <label for="od{{student.id}}">On Duty</label>
+                    </div>
+            </div>
+            {% else %}
+                <div class="attendancestudents">
+                    <div id="name">{{student.name}}</div>
+                        <div id="form">
+                        <input type="radio" id="present{{student.id}}" name="status{{student.id}}" value="present">
+                        <label for="present{{student.id}}">Present</label><br>
+                        <input type="radio" id="absent{{student.id}}" name="status{{student.id}}" value="absent">
+                        <label for="absent{{student.id}}">Absent</label><br>
+                        <input type="radio" id="od{{student.id}}" name="status{{student.id}}" value="OD" checked>
+                        <label for="od{{student.id}}">On Duty</label>
+                        <p>{{buffer.message}}</p>
+                        </div>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="attendancestudents">
+                <div id="name">{{student.name}}</div>
+                    <div id="form">
+                    <input type="radio" id="present{{student.id}}" name="status{{student.id}}" value="present">
+                    <label for="present{{student.id}}">Present</label><br>
+                    <input type="radio" id="absent{{student.id}}" name="status{{student.id}}" value="absent">
+                    <label for="absent{{student.id}}">Absent</label><br>
+                    <input type="radio" id="od{{student.id}}" name="status{{student.id}}" value="OD">
+                    <label for="od{{student.id}}">On Duty</label>
+                    </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+        
+    </div>
+        <button type="button" onclick="location.href='/attendo/faculty/assigned_classes/{{class_id}}'">back</button>
+        <button type="submit">submit</button>
+    </form>
+</body>
