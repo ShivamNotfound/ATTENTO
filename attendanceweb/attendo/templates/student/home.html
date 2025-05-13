@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+        <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'student_style.css'%}">
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+</head>
+
+<body style="background-color: #bae7da;">
+    <div>
+    <nav class="navbar">
+        <center>
+            <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+        <ul>
+            <li><a href="#">Settings</a></li>
+             <li><a href="/attendo/faculty/logout">Logout</a></li>
+        </ul>
+        </center>
+    </nav>
+    </div>
+    <div id="navigations">
+
+        <div id="currentpage" class="navelements">HOME</div>
+        <div class="navelements" onclick="location.href='/attendo/student/mark'">MARK OD/ABSENT</div>
+        <div class="navelements" onclick="location.href='/attendo/student/calendar'">CALENDAR</div>
+        <div class="navelements" onclick="location.href='/attendo/student/labExperiments'">LAB EXPERIMENTS</div>
+        <div class="navelements" onclick="location.href='/attendo/student/history'">ATTENDANCE HISTORY</div>
+        <div class="navelements" onclick="location.href='/attendo/student/timeTable'">TIME TABLE</div>
+        <div class="navelements" onclick="location.href='/attendo/student/notification'">NOTIFICATION ICON</div>
+
+    </div>
+    <div class="stu_home_classes">
+    {% for stu in student %}
+    <button onclick="location.href='/attendo/student/subwiseAttendance/{{stu.classes_id}}'">
+        <span id="classpart">
+        {{stu.classes}}
+        </span>
+        {% load percentage_calculator %}
+        {% percalculate stu.id as percentage %}
+        {% if percentage >= 90 %}
+            <span id="percentagepart" style="color:green">
+            {{percentage}}%
+            </span>
+        {% endif %}
+        {% if percentage < 90 and percentage >= 75 %}
+            <span id="percentagepart" style="color:yellow">
+            {{percentage}}%
+            </span>
+        {% endif %}
+        {% if percentage < 75 %}
+            <span id="percentagepart" style="color:red">
+            {{percentage}}%
+            </span>
+        {% endif %}
+        
+    </button>
+    {% endfor %}
+    </div>
+</body>

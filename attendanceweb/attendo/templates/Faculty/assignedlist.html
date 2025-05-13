@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css' %}">
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+</head>
+<body>
+    <div>
+        <nav class="navbar">
+            <center>
+                <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+            <ul>
+                <li><a href="#">Settings</a></li>
+                 <li><a href="/attendo/faculty/logout">Logout</a></li>
+            </ul>
+            </center>
+        </nav> 
+    </div>
+    
+    {% for period in periods %}
+    {% if period.subject.faculty.username == faculty_name %}
+        {% load percentage_calculator %}
+        {% check_period_dup period.period period.subject_id as result %}
+        {% if result %}
+            <button onclick="location.href='/attendo/faculty/assigned/markattendance/{{class_id}}/{{period.subject_id}}/{{period.period}}'">{{period.name}}</button>
+        {% else %}
+            <button disabled onclick="location.href='/attendo/faculty/assigned/markattendance/{{class_id}}/{{period.subject_id}}/{{period.period}}'">{{period.name}}</button>
+        {% endif %}
+    {% else %}
+    <button disabled>{{period.name}}</button>
+    {% endif %}
+    {% endfor %}
+</body>

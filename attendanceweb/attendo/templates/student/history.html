@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+        <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'student_style.css'%}">
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+</head>
+
+<body>
+    <div>
+    <nav class="navbar">
+        <center>
+            <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+        <ul>
+            <li><a href="#">Settings</a></li>
+             <li><a href="/attendo/faculty/logout">Logout</a></li>
+        </ul>
+        </center>
+    </nav>
+    </div>
+    <div id="navigations">
+
+        <div class="navelements" onclick="location.href='/attendo/student/home'">HOME</div>
+        <div class="navelements" onclick="location.href='/attendo/student/mark'">MARK OD/ABSENT</div>
+        <div class="navelements" onclick="location.href='/attendo/student/calendar'">CALENDAR</div>
+        <div class="navelements" onclick="location.href='/attendo/student/labExperiments'">LAB EXPERIMENTS</div>
+        <div id="currentpage" class="navelements" onclick="location.href='/attendo/student/history'">ATTENDANCE HISTORY</div>
+        <div class="navelements" onclick="location.href='/attendo/student/timeTable'">TIME TABLE</div>
+        <div class="navelements" onclick="location.href='/attendo/student/notification'">NOTIFICATION ICON</div>
+    </div>
+</body>

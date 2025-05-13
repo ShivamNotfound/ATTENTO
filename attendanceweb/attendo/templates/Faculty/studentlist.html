@@ -1,0 +1,60 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css' %}">
+    <script src="{% static 'function.js' %}"></script>
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+    <script></script>
+</head>
+<body>
+    <div></div>
+    <div>
+        <nav class="navbar">
+            <center>
+                <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+            <ul>
+                <li><a href="#">Settings</a></li>
+                 <li><a href="/attendo/faculty/logout">Logout</a></li>
+            </ul>
+            </center>
+        </nav>
+    
+    <div class="faculty_navigations">
+        <button id="active" disabled>Students</button>
+        <button onclick="location.href='/attendo/faculty/subjects/{{classes.id}}/'">Subjects</button>
+        <button onclick="location.href='/attendo/faculty/timetable/{{classes.id}}/'">Time table</button>
+    </div>
+
+
+    </div>
+    <div class="stucontainer">
+        <label >{{classes.degree}}({{classes.branch}})-{{classes.section}}</label>
+        {% for student in students %}
+            <button id ="studis" onclick="location.href=''">{{student.name}}-{{student.regno}}</button>
+            <button id="studelete" onclick="delete_student({{student.id}},{{classes.id}})"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="white"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg></button>
+        {% empty %}
+        <div id="empty">There are no students</div>
+        
+        {% endfor %}
+        
+
+        <div class="addstudiv">
+            <button onclick="location.href='addstu'"><span>+</span>ADD STUDENTS</button>
+        </div>
+    </div>
+    
+    <center>
+    <div class="attendancediv">
+        <button onclick="location.href='/attendo/faculty/home'">Back</button>
+        <button id="mark" onclick="location.href='/attendo/faculty/chooseperiod/{{classes.id}}'">Mark Attendance</button>
+    </div>
+    </center>
+
+</body>
+    
+

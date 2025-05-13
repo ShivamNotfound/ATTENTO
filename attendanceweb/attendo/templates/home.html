@@ -1,0 +1,46 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css' %}">
+    <script src="{% static 'function.js' %}"></script>
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+</head>
+
+<body>
+    <center><div class="logohome"><img src="{% static 'images/attendo_logo1.png' %}"></div></center>
+    <center><div class="msghome">Welcome to ATTENDO</div></center>
+    <div class="rolehome">
+        <button onclick="location.href='/attendo/student/register'">Student<br><svg width="100" height="100" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="black">
+            <path d="M32 12L4 28L32 44L60 28L32 12Z"/>
+            <path d="M12 34V44C12 46.2 13.2 48.3 15.1 49.4L27.5 56.5C30.3 58.1 33.7 58.1 36.5 56.5L48.9 49.4C50.8 48.3 52 46.2 52 44V34L34.1 44.8C33.1 45.4 31.9 45.4 30.9 44.8L12 34Z"/>
+            <path d="M52 32V48C50.3 49 49 50.9 49 53C49 55.8 51.2 58 54 58C56.8 58 59 55.8 59 53C59 50.9 57.7 49 56 48V32H52Z"/>
+          </svg></button>
+        <button onclick="location.href='/attendo/faculty/register'">Faculty<br><svg width="100" height="100" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="black">
+            <!-- Speaker -->
+            <circle cx="32" cy="10" r="6" />
+            <path d="M20 24h24c1 0 2-1 2-2s-1-2-2-2H20c-1 0-2 1-2 2s1 2 2 2z"/>
+            <rect x="26" y="16" width="12" height="8" rx="6" />
+        
+            <!-- Podium -->
+            <path d="M16 26h32v6c0 1.1-.9 2-2 2H18c-1.1 0-2-.9-2-2v-6z"/>
+        
+            <!-- Audience heads -->
+            <circle cx="16" cy="44" r="6"/>
+            <circle cx="32" cy="44" r="6"/>
+            <circle cx="48" cy="44" r="6"/>
+        
+            <!-- Audience bodies -->
+            <path d="M10 50h12v6c0 1.1-.9 2-2 2H12c-1.1 0-2-.9-2-2v-6z"/>
+            <path d="M26 50h12v6c0 1.1-.9 2-2 2H28c-1.1 0-2-.9-2-2v-6z"/>
+            <path d="M42 50h12v6c0 1.1-.9 2-2 2H44c-1.1 0-2-.9-2-2v-6z"/>
+          </svg></button>
+    </div>
+</body>
+
+</html>

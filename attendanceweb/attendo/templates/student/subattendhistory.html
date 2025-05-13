@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+        <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'student_style.css'%}">
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+</head>
+
+<body style="background-color: #bae7da;">
+    <div>
+    <nav class="navbar">
+        <center>
+            <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+        <ul>
+            <li><a href="#">Settings</a></li>
+             <li><a href="/attendo/faculty/logout">Logout</a></li>
+        </ul>
+        </center>
+    </nav>
+    </div>
+
+    <div class="subwiseattendback">
+        <button onclick="location.href='/attendo/student/subwiseAttendance/{{class_id}}'">back</button>
+    </div>
+    
+    <div>
+        {% for attend in attendance %}
+        <div>
+            {{attend.status}}--{{attend.date}}
+        </div>
+        {% endfor %}
+    </div>

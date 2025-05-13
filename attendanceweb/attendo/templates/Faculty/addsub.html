@@ -1,0 +1,39 @@
+{% load static %}
+{% csrf_token %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+    <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'faculty_style.css' %}">
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+    <script src="{% static 'function.js' %}"></script>
+</head>
+<body>
+    <div>
+        <nav class="navbar">
+            <center>
+                <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+            <ul>
+                <li><a href="#">Settings</a></li>
+                 <li><a href="/attendo/faculty/logout">Logout</a></li>
+            </ul>
+            </center>
+        </nav>
+    </div>
+
+    <center>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="addingclassdet">
+                <div><input placeholder="Name" type="text" id="sub_name" name="sub_name"></div>
+                <div><input type="text" placeholder="Faculty's name" id="f_name" name="f_name"></div>
+                <div><input type="text" placeholder="Username" id="f_username" name="f_username"></div>
+            </div></center>
+            <div class="addingclassbtn">
+                <button onclick="location.href='/attendo/faculty/subjects/{{class_id}}'" id="back" type="button">Back</button>
+                <button id="next" type="submit">Next</button>
+            </div>
+        </form>
+</body>

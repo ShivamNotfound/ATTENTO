@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>ATTENTO</title>
+        <link rel="icon" type="image/png" href="{% static 'images/attendo_logo1.png' %}">
+    <link rel="stylesheet" href="{% static 'student_style.css'%}">
+    <meta name="description" content="Attendance tracking website">
+    <meta name="keywords" content="Attendance, college ,school">
+</head>
+
+<body style="background-color: #bae7da;">
+    <div>
+    <nav class="navbar">
+        <center>
+            <img class="logo" src="{% static 'images/attendo_logo1.png' %}">
+        <ul>
+            <li><a href="#">Settings</a></li>
+             <li><a href="/attendo/faculty/logout">Logout</a></li>
+        </ul>
+        </center>
+    </nav>
+    </div>
+
+    <div class="subwiseattendback">
+        <button onclick="location.href='/attendo/student/home'">back</button>
+    </div>
+
+    <form method="POST">
+    {% csrf_token %}
+    <div>
+        <div>
+            <div>
+            <label for="absent">Absent</label>
+            <input type="radio" id="absent" name="status" value="absent">
+            <label for="od">OD</label>
+            <input type="radio" id="od" name="status" value="od">
+            </div>
+            <label for="reason">Reason</label>
+            <textarea id="reason" name="reason"></textarea>
+
+        <p>Choose Periods</p>
+        </div>
+        <div>
+        {% for period in periods %}
+            <label for="{{period.id}}">{{period.subject.name}}</label>
+            <input type="checkbox" name="periods" value={{period.id}} id="{{period.id}}">
+        {% endfor %}
+        </div>
+        <button type="submit">submit</button>
+    </div>
+    </form>
+</body>
